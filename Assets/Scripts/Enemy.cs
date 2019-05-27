@@ -32,7 +32,7 @@ public class Enemy : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetTransform.transform.position, Time.deltaTime * moveSpeed);
             this.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         }
-        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 10)
+        if (Vector3.Distance(this.transform.position, GameObject.FindGameObjectWithTag("Player").transform.position) < 3)
         {
             enemyAnim.SetTrigger("isNear");
         }

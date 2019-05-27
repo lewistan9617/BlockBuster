@@ -7,6 +7,7 @@ public class Boss : MonoBehaviour
     public float moveSpeed;
     public int health;
     public Transform targetTransform;
+   // public Cube floor;
     private Animator bossAnim;
     
     //public Player player;
@@ -19,6 +20,8 @@ public class Boss : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
+        //Physics.IgnoreCollision(GetComponent<Collider>(),);
         bossAnim = GetComponent<Animator>();
     }
 
@@ -31,7 +34,7 @@ public class Boss : MonoBehaviour
             this.transform.position = Vector3.MoveTowards(this.transform.position, targetTransform.transform.position, Time.deltaTime * moveSpeed);
             this.transform.LookAt(GameObject.FindGameObjectWithTag("Player").transform);
         }
-        if (Vector3.Distance(this.transform.position,GameObject.FindGameObjectWithTag("Player").transform.position)<10)
+        if (Vector3.Distance(this.transform.position,GameObject.FindGameObjectWithTag("Player").transform.position)<4)
         {
             bossAnim.SetTrigger("isNear");
         }
