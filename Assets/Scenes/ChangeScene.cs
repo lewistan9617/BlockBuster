@@ -11,6 +11,10 @@ public class ChangeScene : MonoBehaviour
 
 
     }
+    public void LoadTutorial()
+    {
+        SceneManager.LoadScene("Tutorial");
+    }
     public void LoadEasy()
     {
         SceneManager.LoadScene("Easy");

@@ -35,6 +35,7 @@ public class Projectile : MonoBehaviour
         Enemy enemy = col.collider.gameObject.GetComponent<Enemy>();
         Player player = col.collider.gameObject.GetComponent<Player>();
         Boss boss = col.collider.gameObject.GetComponent<Boss>();
+        Target target = col.collider.gameObject.GetComponent<Target>();
         if (enemy)
         {
             enemy.TakeDamage(damage);
@@ -42,7 +43,8 @@ public class Projectile : MonoBehaviour
         }
         if (boss)
             boss.TakeDamage(damage);
-        
+        if (target)
+            target.TakeDamage(damage);
 
 
 

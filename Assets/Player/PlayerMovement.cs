@@ -29,7 +29,7 @@ public class PlayerMovement: MonoBehaviour
             {
                 // 3
                 Vector3 movement = directionsForKeys[i] * acceleration * Time.deltaTime;
-                //transform.LookAt(directionsForKeys[i]+this.transform.position);
+                //transform.LookAt(movement);
                 movePlayer(movement);
             }
         }
