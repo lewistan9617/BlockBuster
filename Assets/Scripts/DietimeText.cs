@@ -14,7 +14,7 @@ public class DietimeText : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GameObject.Find("CameraRig/Main Camera/Canvas/Button/Die").GetComponent<Text>().text =
-            GameObject.Find("CameraRig/Main Camera/Canvas/Text").GetComponent<Text>().text;
+        GameObject.Find("CameraRig/UI Camera/Canvas/Button/Die").GetComponent<Text>().text =
+            GameObject.Find("CameraRig/UI Camera/Canvas/Text").GetComponent<Text>().text;
     }
 }
