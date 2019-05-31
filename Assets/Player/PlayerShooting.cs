@@ -33,6 +33,7 @@ public class PlayerShooting : MonoBehaviour
     {
         bool mouseButtonDown = Input.GetMouseButtonDown(0);
         if (mouseButtonDown)
+        //if (Input.GetButtonDown("Fire1"))
         {
             raycastOnMouseClick();
         }

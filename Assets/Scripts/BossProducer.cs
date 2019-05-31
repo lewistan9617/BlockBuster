@@ -22,6 +22,7 @@ public class BossProducer : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        spawnArea = this.GetComponent<BoxCollider>().bounds;
         SpawnEnemies(shouldSpawn);
         InvokeRepeating("spawnEnemy", starttime , spawntime);
 
@@ -33,11 +34,21 @@ public class BossProducer : MonoBehaviour
     }
     Vector3 randomSpawnPosition()
     {
-        float x = Random.Range(spawnArea.min.x, spawnArea.max.x);
+        
+        /*float x = Random.Range(spawnArea.min.x, spawnArea.max.x);
         float z = Random.Range(spawnArea.min.z, spawnArea.max.z);
         float y = 1.0f;
 
-        return new Vector3(x, y, z);
+        return new Vector3(x, y, z);*/
+        Vector3 temp = new Vector3();
+        temp = player.transform.position;
+        while (Vector3.Distance(temp,player.transform.position)<10)
+        {
+            temp.x = Random.Range(spawnArea.min.x, spawnArea.max.x);
+            temp.z = Random.Range(spawnArea.min.z, spawnArea.max.z);
+            temp.y = 1.0f;
+        }
+        return temp;
     }
 
     void spawnEnemy()
