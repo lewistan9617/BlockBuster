@@ -541,7 +541,7 @@ MonoBehaviour:
   - 7
   - 8
   enemyhp: 2
-  spawntime: 0.5
+  spawntime: 0.4
   isCrazy: 0
   crazyperiod: 0
 --- !u!1 &281888782
@@ -779,6 +779,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 256
   isCrazy: 0
+  upgrade: 0
 --- !u!114 &599203507
 MonoBehaviour:
   m_ObjectHideFlags: 0

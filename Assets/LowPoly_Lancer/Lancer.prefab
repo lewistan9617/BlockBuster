@@ -224,6 +224,7 @@ MonoBehaviour:
   moveSpeed: 5
   health: 20
   targetTransform: {fileID: 400052, guid: f4209d51d1ad0434299f2d498ee076ba, type: 3}
+  star: {fileID: 7689389497926148421, guid: f5c872ee906a85b46aa65e0ab683ed9f, type: 3}
 --- !u!65 &7867389268084619480
 BoxCollider:
   m_ObjectHideFlags: 0

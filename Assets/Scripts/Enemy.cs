@@ -8,6 +8,7 @@ public class Enemy : MonoBehaviour
     public int health;
     public int damage;
     public Transform targetTransform;
+    public Heart heart;
 
     private Animator enemyAnim;
     //public Player player;
@@ -43,6 +44,10 @@ public class Enemy : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            if (Random.Range(0, 10) < 1)
+            {
+                var newitem = Instantiate(heart, this.transform.position, Quaternion.identity) as Heart;
+            }
             Destroy(this.gameObject);
         }
     }

@@ -9,6 +9,7 @@ public class Boss : MonoBehaviour
     public Transform targetTransform;
    // public Cube floor;
     private Animator bossAnim;
+    public Star star;
     
     //public Player player;
     public void Initialize(Transform target, float moveSpeed, int health)
@@ -46,6 +47,7 @@ public class Boss : MonoBehaviour
         health -= damage;
         if (health <= 0)
         {
+            var newitem = Instantiate(star, this.transform.position, Quaternion.identity) as Star;
             Destroy(this.gameObject);
         }
     }

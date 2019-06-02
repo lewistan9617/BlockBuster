@@ -63,7 +63,7 @@ public class EnemyProducer : MonoBehaviour
         {
             temp.x = Random.Range(spawnArea.min.x, spawnArea.max.x);
             temp.z = Random.Range(spawnArea.min.z, spawnArea.max.z);
-            temp.y = 1.0f;
+            temp.y = 0;
         }
         return temp;
     }

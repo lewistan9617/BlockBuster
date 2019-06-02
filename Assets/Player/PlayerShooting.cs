@@ -8,10 +8,11 @@ public class PlayerShooting : MonoBehaviour
     public Player player;
     public LayerMask mask;
     public bool isCrazy;
+    public bool upgrade;
     // Start is called before the first frame update
     void Start()
     {
-        
+        upgrade = false;
     }
 
     // Update is called once per frame
@@ -71,7 +72,22 @@ public class PlayerShooting : MonoBehaviour
             projectile2.FireProjectile(shootRay2);
             projectile3.FireProjectile(shootRay3);
         }
-        
+        if (upgrade)
+        {
+            var projectile2 = Instantiate(projectilePrefab2).GetComponent<Projectile>();
+            var projectile3 = Instantiate(projectilePrefab3).GetComponent<Projectile>();
+            var shootRay2 = new Ray(this.transform.position, direction + Vector3.Cross(temp, direction));
+            var shootRay3 = new Ray(this.transform.position, direction - Vector3.Cross(temp, direction));
+            Debug.DrawRay(shootRay2.origin, shootRay2.direction * 100.1f, Color.green, 2);
+            Debug.DrawRay(shootRay3.origin, shootRay3.direction * 100.1f, Color.green, 2);
+            Physics.IgnoreCollision(GetComponent<Collider>(), projectile2.GetComponent<Collider>());
+            Physics.IgnoreCollision(GetComponent<Collider>(), projectile3.GetComponent<Collider>());
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), projectile2.GetComponent<Collider>());
+            Physics.IgnoreCollision(player.GetComponent<Collider>(), projectile3.GetComponent<Collider>());
+            projectile2.FireProjectile(shootRay2);
+            projectile3.FireProjectile(shootRay3);
+            Invoke("stopupgrade", 5);
+        }
         Debug.DrawRay(shootRay.origin, shootRay.direction * 100.1f, Color.green, 2);
         
 
@@ -85,6 +101,10 @@ public class PlayerShooting : MonoBehaviour
         // 6
         projectile.FireProjectile(shootRay);
         
+    }
+    void stopupgrade()
+    {
+        upgrade = false;
     }
 
 }
